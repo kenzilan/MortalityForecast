@@ -99,7 +99,7 @@ find.density <- function(data,
     k      <- 0
     a      <- 1
     
-    while (all(round(a, 7) == 0) != TRUE ) {
+    while (!is.zero(all(round(a, 7)))) {
       fx         <- exp(-apply(x0, 1, FUN = function(z) sum(z * lambda)) ) # step 1
       px         <- fx / sum(fx)                                           # step 2-3
       mom.est    <- sapply(X = 1:(2*N), FUN = function(n) sum(px*(xx^n)) ) # step 4
