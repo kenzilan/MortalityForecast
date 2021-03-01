@@ -113,7 +113,7 @@ find.density <- function(data,
         }
       }
       
-      invW   <- solve(W)         # step 7
+      invW   <- solve(W, tol = 1e-18)         # step 7
       nu     <- mom2 - mom.star  # step 8
       a      <- invW %*% nu      # step 9
       lambda <- lambda - a       # step 10
